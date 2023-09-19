@@ -10,12 +10,13 @@ namespace GLU.SteeringBehaviours
     {
         [SerializeField] CatStats catStats;
 
-        [SerializeField] protected CatFSM m_state;
+        [SerializeField] protected CatFSM state;
         private NavMeshAgent agent;
         private Rigidbody rb;
 
         [SerializeField] Transform[] targets; //array of targets for like sounds or the player
         private Transform currentTarget;
+        [SerializeField]private GameObject player;
 
         private List<IBehavior> wanderBehaviour;
         private List<IBehavior> chaseBehaviour;
@@ -38,7 +39,7 @@ namespace GLU.SteeringBehaviours
 
         private void Start()
         {
-            m_state = CatFSM.Wander;
+            state = CatFSM.Wander;
 
             // referentie naar het Steering component die wordt bewaard in een variabele
             steering = GetComponent<Steering>();
@@ -50,9 +51,9 @@ namespace GLU.SteeringBehaviours
 
             wanderBehaviour.Add(new Wander(gameObject.transform));
             wanderBehaviour.Add(new AvoidWall());
-            chaseBehaviour.Add(new Pursue(currentTarget.gameObject));
+            chaseBehaviour.Add(new Pursue(player));
             chaseBehaviour.Add(new AvoidWall());
-            investigateBehaviour.Add(new Pursue(currentTarget.gameObject));
+            investigateBehaviour.Add(new Pursue(player));//wordt later vervangen met distraction
             investigateBehaviour.Add(new AvoidWall());
         }
 
@@ -76,25 +77,25 @@ namespace GLU.SteeringBehaviours
                 }
             }
 
-            switch (m_state)
+            switch (state)
             {
                 case CatFSM.Wander:
-                    if (distanceToTarget <= catStats.catSenseRange)
-                        m_state = CatFSM.Chase;
+                    if (distanceToTarget <= catStats.CatSenseRange)
+                        state = CatFSM.Chase;
                         WhatToDoInState();
                     break;
                 case CatFSM.Chase:
-                    if (distanceToTarget <= catStats.catAttackRange)
-                        m_state = CatFSM.Attack;
-                    else if (distanceToTarget > catStats.catSenseRange)
-                        m_state = CatFSM.Wander;
+                    if (distanceToTarget <= catStats.CatAttackRange)
+                        state = CatFSM.Attack;
+                    else if (distanceToTarget > catStats.CatSenseRange)
+                        state = CatFSM.Wander;
                         WhatToDoInState();
                     break;
                 case CatFSM.Investigate:
-                    if (distanceToTarget <= catStats.catSenseRange)
-                        m_state = CatFSM.Chase;
+                    if (distanceToTarget <= catStats.CatSenseRange)
+                        state = CatFSM.Chase;
                     else
-                        m_state = CatFSM.Wander;
+                        state = CatFSM.Wander;
                         WhatToDoInState();
                     break;
             }
@@ -102,19 +103,19 @@ namespace GLU.SteeringBehaviours
 
         private void WhatToDoInState()
         {
-            switch (m_state)
+            switch (state)
             {
                 case CatFSM.Wander:
                         steering.SetBehaviors(wanderBehaviour);
                     break;
                 case CatFSM.Chase:
-                    steering.SetBehaviors(wanderBehaviour);
+                    steering.SetBehaviors(chaseBehaviour);
                     break;
                 case CatFSM.Investigate:
-                    steering.SetBehaviors(wanderBehaviour);
+                    steering.SetBehaviors(investigateBehaviour);
                     break;
                 case CatFSM.Attack:
-                    steering.SetBehaviors(wanderBehaviour);
+                    steering.SetBehaviors(attackBehaviour);
                     break;
             }
         }

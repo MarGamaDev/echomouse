@@ -341,9 +341,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   catStats: {fileID: 11400000, guid: 23696db8acb88444bacc6cf4d0865b07, type: 2}
-  m_state: 2
+  state: 0
   targets:
   - {fileID: 1219335352}
+  player: {fileID: 1219335348}
 --- !u!114 &191160507
 MonoBehaviour:
   m_ObjectHideFlags: 0
