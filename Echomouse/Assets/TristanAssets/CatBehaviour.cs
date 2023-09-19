@@ -16,7 +16,6 @@ namespace GLU.SteeringBehaviours
         private float distanceToDistraction;
 
         [SerializeField] Transform[] targets; //array of targets for like sounds or the player
-        private Transform currentTarget;
         [SerializeField]private GameObject player;
 
         private List<IBehavior> wanderBehaviour;
@@ -32,7 +31,7 @@ namespace GLU.SteeringBehaviours
             Attack
         }
 
-        void Awake()
+        private void Awake()
         {
             agent = GetComponent<NavMeshAgent>();
             rb = GetComponent<Rigidbody>();
@@ -40,7 +39,6 @@ namespace GLU.SteeringBehaviours
 
         private void Start()
         {
-            state = CatFSM.Wander;
 
             // referentie naar het Steering component die wordt bewaard in een variabele
             steering = GetComponent<Steering>();
@@ -71,7 +69,6 @@ namespace GLU.SteeringBehaviours
             if (distance < distanceToPlayer)
             {
                 distanceToPlayer = distance;
-                currentTarget = player.transform;
             }
 
             switch (state)
@@ -112,7 +109,6 @@ namespace GLU.SteeringBehaviours
             if (distance < distanceToDistraction)
             {
                 distanceToDistraction = distance;
-                currentTarget = distraction.transform;
             }
             investigateBehaviour.Add(new Pursue(distraction));
             state = CatFSM.Investigate;
