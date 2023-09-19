@@ -18,6 +18,9 @@ namespace GLU.SteeringBehaviours
         private Transform currentTarget;
 
         private List<IBehavior> wanderBehaviour;
+        private List<IBehavior> chaseBehaviour;
+        private List<IBehavior> investigateBehaviour;
+        private List<IBehavior> attackBehaviour;
         private Steering steering;
         protected enum CatFSM
         {
@@ -41,8 +44,16 @@ namespace GLU.SteeringBehaviours
             steering = GetComponent<Steering>();
 
             wanderBehaviour = new List<IBehavior>();
+            chaseBehaviour = new List<IBehavior>();
+            investigateBehaviour = new List<IBehavior>();
+            attackBehaviour = new List<IBehavior>();
 
             wanderBehaviour.Add(new Wander(gameObject.transform));
+            wanderBehaviour.Add(new AvoidWall());
+            chaseBehaviour.Add(new Pursue(currentTarget.gameObject));
+            chaseBehaviour.Add(new AvoidWall());
+            investigateBehaviour.Add(new Pursue(currentTarget.gameObject));
+            investigateBehaviour.Add(new AvoidWall());
         }
 
         private void FixedUpdate()
@@ -95,6 +106,15 @@ namespace GLU.SteeringBehaviours
             {
                 case CatFSM.Wander:
                         steering.SetBehaviors(wanderBehaviour);
+                    break;
+                case CatFSM.Chase:
+                    steering.SetBehaviors(wanderBehaviour);
+                    break;
+                case CatFSM.Investigate:
+                    steering.SetBehaviors(wanderBehaviour);
+                    break;
+                case CatFSM.Attack:
+                    steering.SetBehaviors(wanderBehaviour);
                     break;
             }
         }
