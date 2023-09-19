@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab39d9b70f337094b84a52dd497240e7, type: 3}
   m_Name: CatStats
   m_EditorClassIdentifier: 
-  moveSpeed: 4
-  catSenseRange: 5
+  MoveSpeed: 0
+  CatSenseRange: 6
+  CatAttackRange: 1

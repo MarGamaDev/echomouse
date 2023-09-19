@@ -13,6 +13,7 @@ namespace GLU.SteeringBehaviours
         [SerializeField] protected CatFSM state;
         private NavMeshAgent agent;
         private Rigidbody rb;
+        private float distanceToDistraction;
 
         [SerializeField] Transform[] targets; //array of targets for like sounds or the player
         private Transform currentTarget;
@@ -53,7 +54,6 @@ namespace GLU.SteeringBehaviours
             wanderBehaviour.Add(new AvoidWall());
             chaseBehaviour.Add(new Pursue(player));
             chaseBehaviour.Add(new AvoidWall());
-            investigateBehaviour.Add(new Pursue(player));//wordt later vervangen met distraction
             investigateBehaviour.Add(new AvoidWall());
         }
 
@@ -64,41 +64,58 @@ namespace GLU.SteeringBehaviours
 
         private void UpdateCatState()
         {
-            float distanceToTarget = Mathf.Infinity;
+            float distanceToPlayer = Mathf.Infinity;
 
-            foreach (Transform target in targets)
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distance < distanceToPlayer)
             {
-                float distance = Vector3.Distance(transform.position, target.position);
-
-                if (distance < distanceToTarget)
-                {
-                    distanceToTarget = distance;
-                    currentTarget = target;
-                }
+                distanceToPlayer = distance;
+                currentTarget = player.transform;
             }
 
             switch (state)
             {
                 case CatFSM.Wander:
-                    if (distanceToTarget <= catStats.CatSenseRange)
+                    if (distanceToPlayer <= catStats.CatSenseRange)
                         state = CatFSM.Chase;
                         WhatToDoInState();
                     break;
                 case CatFSM.Chase:
-                    if (distanceToTarget <= catStats.CatAttackRange)
+                    if (distanceToPlayer <= catStats.CatAttackRange)
                         state = CatFSM.Attack;
-                    else if (distanceToTarget > catStats.CatSenseRange)
+                    else if (distanceToPlayer > catStats.CatSenseRange)
                         state = CatFSM.Wander;
                         WhatToDoInState();
                     break;
                 case CatFSM.Investigate:
-                    if (distanceToTarget <= catStats.CatSenseRange)
+                    if (distanceToPlayer <= catStats.CatSenseRange)
                         state = CatFSM.Chase;
-                    else
+                    else if (distanceToDistraction <= 0)
                         state = CatFSM.Wander;
                         WhatToDoInState();
                     break;
+                case CatFSM.Attack:
+                    if (distanceToPlayer <= catStats.CatSenseRange)
+                        state = CatFSM.Chase;
+                    WhatToDoInState();
+                    break;
             }
+        }
+
+        public void GetDestracted(GameObject distraction)
+        {
+            distanceToDistraction = Mathf.Infinity;
+
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+
+            if (distance < distanceToDistraction)
+            {
+                distanceToDistraction = distance;
+                currentTarget = distraction.transform;
+            }
+            investigateBehaviour.Add(new Pursue(distraction));
+            state = CatFSM.Investigate;
         }
 
         private void WhatToDoInState()
