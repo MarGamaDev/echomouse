@@ -9,4 +9,5 @@ public class CatStats : ScriptableObject
 {
     public float moveSpeed;
     public float catSenseRange;
+    public float catAttackRange;
 }

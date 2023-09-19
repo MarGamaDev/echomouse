@@ -59,32 +59,23 @@ public class CatBehaviour : MonoBehaviour
                 if (distanceToTarget <= catStats.catSenseRange)
                     m_state = CatFSM.Chase;
                 break;
+            case CatFSM.Chase:
+                if (distanceToTarget <= catStats.catAttackRange)
+                    m_state = CatFSM.Attack;
+                else if (distanceToTarget > catStats.catSenseRange)
+                    m_state = CatFSM.Wander;
+                break;
+            case CatFSM.Investigate:
+                if (distanceToTarget <= catStats.catSenseRange)
+                    m_state = CatFSM.Chase;
+                else
+                    m_state = CatFSM.Wander;
+                break;
         }
+    }
 
-        //switch (m_state)
-        //{
-        //    case ChildFSM.Chase:
-        //        if (isStunned == true)
-        //            TrasitionToStunnedState();
-        //        else if (distanceToTarget <= enemyStats.attackRange)
-        //            m_state = ChildFSM.Attack;
-        //        break;
+    private void WhatToDoInState()
+    {
 
-        //    case ChildFSM.Attack:
-        //        if (isStunned == true)
-        //            TrasitionToStunnedState();
-        //        else if (distanceToTarget > enemyStats.attackRange)
-        //            m_state = ChildFSM.Chase;
-        //        break;
-
-        //    case ChildFSM.Stunned:
-        //        if (isStunned == true)
-        //            return;
-        //        else if (distanceToTarget <= enemyStats.attackRange)
-        //            m_state = ChildFSM.Attack;
-        //        else if (distanceToTarget > enemyStats.attackRange)
-        //            m_state = ChildFSM.Chase;
-        //        break;
-        //}
     }
 }
