@@ -12,7 +12,7 @@ public class CharacterController : MonoBehaviour
 
     [Space]
     [SerializeField] private Transform groundRayTransform;
-    [SerializeField] private float rayLength = 0.1f;
+    [SerializeField] private float groundRayLength = 1f;
     [SerializeField] private LayerMask groundMask;
     private bool isGrounded = true;
     bool isJumping = false;
@@ -28,7 +28,7 @@ public class CharacterController : MonoBehaviour
     [SerializeField] private Transform squeekRayTransform;
     [SerializeField] private GameObject soundWavePrefab;
     [SerializeField] private LayerMask soundMask;
-    [SerializeField] private float squeekLength = 2f;
+    [SerializeField] private float squeekRayLength = 2f;
     [SerializeField] private float squeekCooldownInSeconds = 1f;
     private float squeekTimer = 0f;
 
@@ -50,7 +50,7 @@ public class CharacterController : MonoBehaviour
         Vector3 forwardForce = transform.forward * inputVector.y;
         moveForce = (rightForce + forwardForce) * moveSpeed;
 
-        isGrounded = Physics.Raycast(groundRayTransform.position, -groundRayTransform.up, rayLength, groundMask);
+        isGrounded = Physics.Raycast(groundRayTransform.position, -groundRayTransform.up, groundRayLength, groundMask);
         mouseInput = new(Input.GetAxis("Mouse X") * mouseSensitivity.x, Input.GetAxis("Mouse Y") * mouseSensitivity.y);
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -63,13 +63,14 @@ public class CharacterController : MonoBehaviour
             //cast ray forward
             Debug.Log("fire");
             RaycastHit hit;
-            if (Physics.Raycast(squeekRayTransform.position, squeekRayTransform.forward, out hit, squeekLength, soundMask))
+            Vector3 pos = squeekRayTransform.forward * squeekRayLength;
+            if (Physics.Raycast(squeekRayTransform.position, squeekRayTransform.forward, out hit, squeekRayLength, soundMask))
             {
-                Debug.Log("hit");
-                GameObject.Instantiate(soundWavePrefab, hit.point, Quaternion.identity);
+                pos = hit.point;
             }
+            GameObject.Instantiate(soundWavePrefab, pos, Quaternion.identity);
             //if it hits, make soundwave
-            squeekTimer= 0f;
+            squeekTimer = 0f;
         }
 
         squeekTimer += Time.deltaTime;
@@ -96,5 +97,12 @@ public class CharacterController : MonoBehaviour
         camXRotation = rotX;
         camTransform.localRotation = Quaternion.Euler(rotX, 0, 0);
         transform.Rotate(0, mouseInput.x * Time.fixedDeltaTime, 0);
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawLine(groundRayTransform.position, groundRayTransform.position -  groundRayTransform.up * groundRayLength);
+        Gizmos.DrawLine(squeekRayTransform.position, squeekRayTransform.position + squeekRayTransform.forward * squeekRayLength);
     }
 }
