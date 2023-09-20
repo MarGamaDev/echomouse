@@ -1,0 +1,173 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="Steering.Arrive" Collapsed="true">
+    <Position X="32.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Arrive.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.AvoidObstacle" Collapsed="true">
+    <Position X="30" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAALAAAAAAAAAABAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\AvoidObstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Steering" Collapsed="true">
+    <Position X="22.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAiAAggAgEgAAAAAAAAAAAgQAIAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Steering.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Behavior" Collapsed="true">
+    <Position X="26.5" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAgAADAAAABAAAAAAAAAAAQAAACAAAACAAAAAAE=</HashCode>
+      <FileName>Assets\Steering\Behavior.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Steering.AvoidWall" Collapsed="true">
+    <Position X="18.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAALAAAAAAAAAAAAAAAAAAAAAgAAAAAgAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\AvoidWall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Evade" Collapsed="true">
+    <Position X="32" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAIAAAgAAAAAAAAQAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Evade.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Example" Collapsed="true">
+    <Position X="27.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Example.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Flee" Collapsed="true">
+    <Position X="25.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Flee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Flock" Collapsed="true">
+    <Position X="25.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACEAAAAADAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Flock.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.FollowPath" Collapsed="true">
+    <Position X="21" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAkjAAAAAAAAAACAAAAAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\FollowPath.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Hide" Collapsed="true">
+    <Position X="34.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAEAAAAADAAAAAAAAAAAAAACAAAAQAAAAAAAAAAAMg=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Hide.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Idle" Collapsed="true">
+    <Position X="34.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Idle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Keyboard" Collapsed="true">
+    <Position X="18.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Keyboard.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Pursue" Collapsed="true">
+    <Position X="23.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAAAAAAIAAAgAAAAAAAAQAAAAAAAAAAAQA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Pursue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Seek" Collapsed="true">
+    <Position X="20.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Seek.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.SeekClickPoint" Collapsed="true">
+    <Position X="36.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\SeekClickPoint.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Wander" Collapsed="true">
+    <Position X="23" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAADAAEAAAAAAABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Wander.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.FlockAlignment" Collapsed="true">
+    <Position X="25.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIEAAAAAAAAAABAABAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Flock\FlockAlignment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.FlockCohesion" Collapsed="true">
+    <Position X="23.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAABAABAAAAAIAAAAAAAAAQAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Flock\FlockCohesion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.FlockSeparation" Collapsed="true">
+    <Position X="27.25" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAAAAAABAABAAAAAIAAQAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Behaviors\Flock\FlockSeparation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Refactored.AvoidObstacle" Collapsed="true">
+    <Position X="27.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Refactored Avoid\Behaviors\Avoid\AvoidObstacle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Refactored.AvoidWall" Collapsed="true">
+    <Position X="29.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Refactored Avoid\Behaviors\Avoid\AvoidWall.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Steering.Refactored.Avoid" Collapsed="true">
+    <Position X="28.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAQAAALAEECAAAAAAAAAAAAABIAAgAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Steering\Refactored Avoid\Behaviors\Avoid.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Steering.IBehavior" Collapsed="true">
+    <Position X="39" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Steering\IBehavior.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
