@@ -10,6 +10,7 @@ public class EchoPoint : MonoBehaviour
 
     public void StartPulse()
     {
+        material.SetVector("_Origin", transform.position);
         StartCoroutine(CountDownToDemise());
     }
 
