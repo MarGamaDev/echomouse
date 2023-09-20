@@ -16,6 +16,12 @@ namespace GLU.SteeringBehaviours
         [SerializeField] private GameObject attackHitBox;
         private GameObject currentTarget;
         private Coroutine currentCoroutine;
+        private Coroutine soundCoroutine;
+        private AudioSource audioSource;
+        [SerializeField] private AudioClip catAttackAudio;
+        [SerializeField] private AudioClip catChaseAndInvestigateAudio;
+        [SerializeField] private AudioClip catWanderAudio;
+
 
         private List<IBehavior> wanderBehaviour;
         private List<IBehavior> chaseBehaviour;
@@ -28,6 +34,11 @@ namespace GLU.SteeringBehaviours
             Investigate,
             Chase,
             Attack
+        }
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
         }
 
         private void Start()
@@ -127,13 +138,19 @@ namespace GLU.SteeringBehaviours
             switch (state)
             {
                 case CatFSM.Wander:
-                        steering.SetBehaviors(wanderBehaviour);
+                    steering.SetBehaviors(wanderBehaviour);
+                    if (soundCoroutine == null)
+                        soundCoroutine = StartCoroutine(PlaySound(catWanderAudio));
                     break;
                 case CatFSM.Chase:
                     steering.SetBehaviors(chaseBehaviour);
+                    if (soundCoroutine == null)
+                        soundCoroutine = StartCoroutine(PlaySound(catChaseAndInvestigateAudio));
                     break;
                 case CatFSM.Investigate:
                     steering.SetBehaviors(investigateBehaviour);
+                    if (soundCoroutine == null)
+                        soundCoroutine = StartCoroutine(PlaySound(catChaseAndInvestigateAudio));
                     break;
                 case CatFSM.Attack:
                     if (currentCoroutine == null)
@@ -141,6 +158,8 @@ namespace GLU.SteeringBehaviours
                         currentCoroutine = StartCoroutine(Attack());
                     }
                     steering.SetBehaviors(attackBehaviour);
+                    if (soundCoroutine == null)
+                        soundCoroutine = StartCoroutine(PlaySound(catAttackAudio));
                     break;
             }
         }
@@ -153,6 +172,16 @@ namespace GLU.SteeringBehaviours
             attackHitBox.SetActive(false);
 
             currentCoroutine = null;
+        }
+
+        private IEnumerator PlaySound(AudioClip audioClip)
+        {
+            yield return null;
+
+            audioSource.PlayOneShot(audioClip);
+            yield return new WaitForSeconds(4f);
+
+            soundCoroutine = null;
         }
     }
 }
