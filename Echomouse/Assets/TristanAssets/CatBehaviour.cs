@@ -11,12 +11,11 @@ namespace GLU.SteeringBehaviours
         [SerializeField] CatStats catStats;
 
         [SerializeField] protected CatFSM state;
-        private NavMeshAgent agent;
-        private Rigidbody rb;
         private float distanceToDistraction;
-
-        [SerializeField] Transform[] targets; //array of targets for like sounds or the player
         [SerializeField]private GameObject player;
+        [SerializeField] private GameObject attackHitBox;
+        private GameObject currentTarget;
+        private Coroutine currentCoroutine;
 
         private List<IBehavior> wanderBehaviour;
         private List<IBehavior> chaseBehaviour;
@@ -29,12 +28,6 @@ namespace GLU.SteeringBehaviours
             Investigate,
             Chase,
             Attack
-        }
-
-        private void Awake()
-        {
-            agent = GetComponent<NavMeshAgent>();
-            rb = GetComponent<Rigidbody>();
         }
 
         private void Start()
@@ -52,7 +45,6 @@ namespace GLU.SteeringBehaviours
             wanderBehaviour.Add(new AvoidWall());
             chaseBehaviour.Add(new Pursue(player));
             chaseBehaviour.Add(new AvoidWall());
-            investigateBehaviour.Add(new AvoidWall());
         }
 
         private void FixedUpdate()
@@ -64,11 +56,23 @@ namespace GLU.SteeringBehaviours
         {
             float distanceToPlayer = Mathf.Infinity;
 
-            float distance = Vector3.Distance(transform.position, player.transform.position);
+            float distancePlayer = Vector3.Distance(transform.position, player.transform.position);
 
-            if (distance < distanceToPlayer)
+            if (distancePlayer < distanceToPlayer)
             {
-                distanceToPlayer = distance;
+                distanceToPlayer = distancePlayer;
+            }
+
+            if (currentTarget != null)
+            {
+                distanceToDistraction = Mathf.Infinity;
+
+                float distanceDistraction = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+                if (distanceDistraction < distanceToDistraction)
+                {
+                    distanceToDistraction = distanceDistraction;
+                }
             }
 
             switch (state)
@@ -88,7 +92,7 @@ namespace GLU.SteeringBehaviours
                 case CatFSM.Investigate:
                     if (distanceToPlayer <= catStats.CatSenseRange)
                         state = CatFSM.Chase;
-                    else if (distanceToDistraction <= 0)
+                    else if (distanceToDistraction <= 5)
                         state = CatFSM.Wander;
                         WhatToDoInState();
                     break;
@@ -102,15 +106,11 @@ namespace GLU.SteeringBehaviours
 
         public void GetDestracted(GameObject distraction)
         {
-            distanceToDistraction = Mathf.Infinity;
+            investigateBehaviour.Clear();
 
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-
-            if (distance < distanceToDistraction)
-            {
-                distanceToDistraction = distance;
-            }
-            investigateBehaviour.Add(new Pursue(distraction));
+            currentTarget = distraction;
+            investigateBehaviour.Add(new Pursue(currentTarget));
+            investigateBehaviour.Add(new AvoidWall());
             state = CatFSM.Investigate;
         }
 
@@ -125,12 +125,34 @@ namespace GLU.SteeringBehaviours
                     steering.SetBehaviors(chaseBehaviour);
                     break;
                 case CatFSM.Investigate:
+                    distanceToDistraction = Mathf.Infinity;
+
+                    float distance = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+                    if (distance < distanceToDistraction)
+                    {
+                        distanceToDistraction = distance;
+                    }
                     steering.SetBehaviors(investigateBehaviour);
                     break;
                 case CatFSM.Attack:
+                    if (currentCoroutine == null)
+                    {
+                        currentCoroutine = StartCoroutine(Attack());
+                    }
                     steering.SetBehaviors(attackBehaviour);
                     break;
             }
+        }
+
+        private IEnumerator Attack()
+        {
+            yield return new WaitForSeconds(1f);
+            attackHitBox.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            attackHitBox.SetActive(false);
+
+            currentCoroutine = null;
         }
     }
 }

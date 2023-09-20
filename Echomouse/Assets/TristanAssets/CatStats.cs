@@ -7,7 +7,6 @@ using UnityEngine;
 
 public class CatStats : ScriptableObject
 {
-    public float MoveSpeed;
     public float CatSenseRange;
     public float CatAttackRange;
 }
