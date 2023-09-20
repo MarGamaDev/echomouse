@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: CatStats
   m_EditorClassIdentifier: 
   MoveSpeed: 0
-  CatSenseRange: 6
-  CatAttackRange: 1
+  CatSenseRange: 8
+  CatAttackRange: 4

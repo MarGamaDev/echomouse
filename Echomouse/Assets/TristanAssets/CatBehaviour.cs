@@ -12,10 +12,10 @@ namespace GLU.SteeringBehaviours
 
         [SerializeField] protected CatFSM state;
         private float distanceToDistraction;
-
-        [SerializeField] Transform[] targets; //array of targets for like sounds or the player
         [SerializeField]private GameObject player;
+        [SerializeField] private GameObject attackHitBox;
         private GameObject currentTarget;
+        private Coroutine currentCoroutine;
 
         private List<IBehavior> wanderBehaviour;
         private List<IBehavior> chaseBehaviour;
@@ -63,13 +63,16 @@ namespace GLU.SteeringBehaviours
                 distanceToPlayer = distancePlayer;
             }
 
-            distanceToDistraction = Mathf.Infinity;
-
-            float distanceDistraction = Vector3.Distance(transform.position, currentTarget.transform.position);
-
-            if (distanceDistraction < distanceToDistraction)
+            if (currentTarget != null)
             {
-                distanceToDistraction = distanceDistraction;
+                distanceToDistraction = Mathf.Infinity;
+
+                float distanceDistraction = Vector3.Distance(transform.position, currentTarget.transform.position);
+
+                if (distanceDistraction < distanceToDistraction)
+                {
+                    distanceToDistraction = distanceDistraction;
+                }
             }
 
             switch (state)
@@ -133,9 +136,22 @@ namespace GLU.SteeringBehaviours
                     steering.SetBehaviors(investigateBehaviour);
                     break;
                 case CatFSM.Attack:
+                    if (currentCoroutine == null)
+                    {
+                        currentCoroutine = StartCoroutine(Attack());
+                    }
                     steering.SetBehaviors(attackBehaviour);
                     break;
             }
+        }
+
+        private IEnumerator Attack()
+        {
+            attackHitBox.SetActive(true);
+            yield return new WaitForSeconds(1f);
+            attackHitBox.SetActive(false);
+
+            currentCoroutine = null;
         }
     }
 }
