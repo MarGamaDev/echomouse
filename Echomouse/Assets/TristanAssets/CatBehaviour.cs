@@ -54,6 +54,7 @@ namespace GLU.SteeringBehaviours
 
         private void UpdateCatState()
         {
+            //check de afstand tussen de player en kat
             float distanceToPlayer = Mathf.Infinity;
 
             float distancePlayer = Vector3.Distance(transform.position, player.transform.position);
@@ -63,6 +64,7 @@ namespace GLU.SteeringBehaviours
                 distanceToPlayer = distancePlayer;
             }
 
+            //check de afstand tussen de afleiding en kat wanneer er een afleiding is
             if (currentTarget != null)
             {
                 distanceToDistraction = Mathf.Infinity;
@@ -75,6 +77,7 @@ namespace GLU.SteeringBehaviours
                 }
             }
 
+            //switch case voor om te bepalen wanneer de AI van behavior moet wisselen
             switch (state)
             {
                 case CatFSM.Wander:
@@ -104,6 +107,10 @@ namespace GLU.SteeringBehaviours
             }
         }
 
+        /// <summary>
+        /// zorgt ervoor dat de kat naar het object gaat dat wordt meegegeven bij deze functie
+        /// </summary>
+        /// <param name="distraction">object waar de kat door wordt afgeleid</param>
         public void GetDestracted(GameObject distraction)
         {
             investigateBehaviour.Clear();
@@ -116,6 +123,7 @@ namespace GLU.SteeringBehaviours
 
         private void WhatToDoInState()
         {
+            //switch case om te bepalen wat er gedaan moet worden in elke state
             switch (state)
             {
                 case CatFSM.Wander:
