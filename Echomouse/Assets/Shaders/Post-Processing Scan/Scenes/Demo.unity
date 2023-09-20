@@ -1138,18 +1138,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1975517977457944496, guid: e1b41b96985074f44940df86e5ada631, type: 3}
-      propertyPath: material
-      value: 
-      objectReference: {fileID: 2100000, guid: 28848e0b5cdf94e4c852763c8d7b67b0, type: 2}
-    - target: {fileID: 1975517977457944496, guid: e1b41b96985074f44940df86e5ada631, type: 3}
-      propertyPath: matTemplate
-      value: 
-      objectReference: {fileID: 2100000, guid: 28848e0b5cdf94e4c852763c8d7b67b0, type: 2}
-    - target: {fileID: 1975517977457944496, guid: e1b41b96985074f44940df86e5ada631, type: 3}
-      propertyPath: animateLengthInSeconds
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 1975517977457944499, guid: e1b41b96985074f44940df86e5ada631, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -1198,8 +1186,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: SphereMaskPoint
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1991650527, guid: e1b41b96985074f44940df86e5ada631, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e1b41b96985074f44940df86e5ada631, type: 3}
 --- !u!1 &1273221817
 GameObject:
