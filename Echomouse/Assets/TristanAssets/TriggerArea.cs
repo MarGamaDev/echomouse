@@ -5,11 +5,17 @@ using UnityEngine;
 public class TriggerArea : MonoBehaviour
 {
     [SerializeField] TriggerScript triggerScript;
+    [SerializeField] private bool canBeActivatedByCat;
+    [SerializeField] private bool canBeActivatedByPlayer;
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (canBeActivatedByPlayer == true && other.CompareTag("Player"))
+        {
+            triggerScript.Activate();
+        }
+        else if (canBeActivatedByCat == true && other.CompareTag("Cat"))
         {
             triggerScript.Activate();
         }

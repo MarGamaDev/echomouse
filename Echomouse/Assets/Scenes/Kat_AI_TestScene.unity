@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 144697783}
   m_Layer: 0
   m_Name: RightFrontLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 159036828}
   m_Layer: 0
   m_Name: CatTransformPoint
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 191160502}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 215263353}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 230758368}
   m_Layer: 0
   m_Name: Tail
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -718,6 +718,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   triggerScript: {fileID: 1104842208}
+  canBeActivatedByCat: 1
+  canBeActivatedByPlayer: 0
 --- !u!1 &496167310
 GameObject:
   m_ObjectHideFlags: 0
@@ -829,7 +831,7 @@ GameObject:
   - component: {fileID: 564682234}
   m_Layer: 0
   m_Name: LeftFrontLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -927,7 +929,7 @@ GameObject:
   - component: {fileID: 617791837}
   m_Layer: 0
   m_Name: LeftBackLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1543,7 +1545,7 @@ GameObject:
   - component: {fileID: 1458675296}
   m_Layer: 0
   m_Name: RightBackLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1641,7 +1643,7 @@ GameObject:
   - component: {fileID: 2079405311}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
