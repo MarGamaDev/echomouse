@@ -1322,6 +1322,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   canActivate: 1
+  activationCoolDown: 2
 --- !u!1 &1219335348
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class TriggerScript : MonoBehaviour
 {
     [SerializeField] private UnityEvent onActivated;
     [SerializeField]private bool canActivate = true;
+    [SerializeField] private float activationCoolDown;
     private Coroutine currentCoroutine;
 
     public void Activate()
@@ -34,7 +35,7 @@ public class TriggerScript : MonoBehaviour
     {
         yield return null;
         canActivate = false;
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(activationCoolDown);
         currentCoroutine = null;
         if (currentCoroutine == null)
         {
