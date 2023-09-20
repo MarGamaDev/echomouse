@@ -6,7 +6,8 @@ using UnityEngine.Events;
 public class TriggerScript : MonoBehaviour
 {
     [SerializeField] private UnityEvent onActivated;
-    private bool canActivate = true;
+    [SerializeField]private bool canActivate = true;
+    private Coroutine currentCoroutine;
 
     public void Activate()
     {
@@ -16,12 +17,29 @@ public class TriggerScript : MonoBehaviour
         }
 
         onActivated?.Invoke();
+        if (currentCoroutine == null)
+        {
+            currentCoroutine = StartCoroutine(SetCanActivateFalse());
+        }
     }
 
     private IEnumerator SetCanActivate()
     {
-        canActivate = true;
         yield return null;
+        canActivate = true;
+        currentCoroutine = null;
+    }
+
+    private IEnumerator SetCanActivateFalse()
+    {
+        yield return null;
+        canActivate = false;
+        yield return new WaitForSeconds(2f);
+        currentCoroutine = null;
+        if (currentCoroutine == null)
+        {
+            currentCoroutine = StartCoroutine(SetCanActivate());
+        }
     }
 
 }

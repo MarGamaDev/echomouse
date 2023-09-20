@@ -11,7 +11,6 @@ public class TriggerArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            Debug.Log("HIT");
             triggerScript.Activate();
         }
     }
