@@ -95,7 +95,7 @@ namespace GLU.SteeringBehaviours
                 case CatFSM.Investigate:
                     if (distanceToPlayer <= catStats.CatSenseRange)
                         state = CatFSM.Chase;
-                    else if (distanceToDistraction <= 5)
+                    else if (distanceToDistraction <= catStats.CatSenseRange)
                         state = CatFSM.Wander;
                         WhatToDoInState();
                     break;
@@ -133,14 +133,6 @@ namespace GLU.SteeringBehaviours
                     steering.SetBehaviors(chaseBehaviour);
                     break;
                 case CatFSM.Investigate:
-                    distanceToDistraction = Mathf.Infinity;
-
-                    float distance = Vector3.Distance(transform.position, currentTarget.transform.position);
-
-                    if (distance < distanceToDistraction)
-                    {
-                        distanceToDistraction = distance;
-                    }
                     steering.SetBehaviors(investigateBehaviour);
                     break;
                 case CatFSM.Attack:
