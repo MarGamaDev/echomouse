@@ -584,7 +584,7 @@ MonoBehaviour:
   mouseSensitivity: {x: 800, y: 200}
   maxUpDownAngle: 90
   squeekRayTransform: {fileID: 1424673634}
-  soundWavePrefab: {fileID: 1975517977457944511, guid: e1b41b96985074f44940df86e5ada631, type: 3}
+  soundWavePrefab: {fileID: 0}
   soundMask:
     serializedVersion: 2
     m_Bits: 1
