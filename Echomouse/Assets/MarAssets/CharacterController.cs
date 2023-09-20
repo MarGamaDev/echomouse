@@ -26,7 +26,6 @@ public class CharacterController : MonoBehaviour
 
     [Space]
     [SerializeField] private Transform squeekRayTransform;
-    [SerializeField] private GameObject soundWavePrefab;
     [SerializeField] private LayerMask soundMask;
     [SerializeField] private float squeekRayLength = 2f;
     [SerializeField] private float squeekCooldownInSeconds = 1f;
@@ -44,7 +43,6 @@ public class CharacterController : MonoBehaviour
         inputVector.x = Input.GetAxisRaw("Horizontal");
         inputVector.y = Input.GetAxisRaw("Vertical");
         inputVector = inputVector.normalized;
-        Debug.Log(inputVector);
 
         Vector3 rightForce = transform.right * inputVector.x;
         Vector3 forwardForce = transform.forward * inputVector.y;
@@ -68,7 +66,7 @@ public class CharacterController : MonoBehaviour
             {
                 pos = hit.point;
             }
-            GameObject.Instantiate(soundWavePrefab, pos, Quaternion.identity);
+            EchoPointManager.instance.GetPulse(pos);
             //if it hits, make soundwave
             squeekTimer = 0f;
         }
