@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 144697783}
   m_Layer: 0
   m_Name: RightFrontLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -235,7 +235,7 @@ GameObject:
   - component: {fileID: 159036828}
   m_Layer: 0
   m_Name: CatTransformPoint
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -320,7 +320,7 @@ GameObject:
   - component: {fileID: 191160502}
   m_Layer: 0
   m_Name: Cat
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -425,7 +425,7 @@ GameObject:
   - component: {fileID: 215263353}
   m_Layer: 0
   m_Name: Neck
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -523,7 +523,7 @@ GameObject:
   - component: {fileID: 230758368}
   m_Layer: 0
   m_Name: Tail
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -619,6 +619,7 @@ GameObject:
   - component: {fileID: 462151805}
   - component: {fileID: 462151804}
   - component: {fileID: 462151803}
+  - component: {fileID: 462151806}
   m_Layer: 0
   m_Name: TriggerArea
   m_TagString: Untagged
@@ -649,7 +650,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462151801}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -704,6 +705,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 462151801}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &462151806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 462151801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dd80713bfdf45342afe969625121f57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerScript: {fileID: 1104842208}
+  canBeActivatedByCat: 1
+  canBeActivatedByPlayer: 0
 --- !u!1 &496167310
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +831,7 @@ GameObject:
   - component: {fileID: 564682234}
   m_Layer: 0
   m_Name: LeftFrontLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -913,7 +929,7 @@ GameObject:
   - component: {fileID: 617791837}
   m_Layer: 0
   m_Name: LeftBackLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1191,6 +1207,7 @@ GameObject:
   - component: {fileID: 1104842206}
   - component: {fileID: 1104842205}
   - component: {fileID: 1104842204}
+  - component: {fileID: 1104842208}
   m_Layer: 0
   m_Name: TriggerObject
   m_TagString: Untagged
@@ -1277,6 +1294,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1104842208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1104842202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68ab8b559924f10439f6456c1aaa2e79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 159036825}
+        m_TargetAssemblyTypeName: GLU.SteeringBehaviours.CatBehaviour, Assembly-CSharp
+        m_MethodName: GetDestracted
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1104842202}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  canActivate: 1
+  activationCoolDown: 2
 --- !u!1 &1219335348
 GameObject:
   m_ObjectHideFlags: 0
@@ -1289,9 +1335,10 @@ GameObject:
   - component: {fileID: 1219335351}
   - component: {fileID: 1219335350}
   - component: {fileID: 1219335349}
-  m_Layer: 0
+  - component: {fileID: 1219335353}
+  m_Layer: 5
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1304,7 +1351,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219335348}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
@@ -1368,13 +1415,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1219335348}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.18, z: -14.45}
+  m_LocalPosition: {x: 19.74, y: 12.06, z: 0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1219335353
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1219335348}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1415633373
 GameObject:
   m_ObjectHideFlags: 0
@@ -1483,7 +1546,7 @@ GameObject:
   - component: {fileID: 1458675296}
   m_Layer: 0
   m_Name: RightBackLeg
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1581,7 +1644,7 @@ GameObject:
   - component: {fileID: 2079405311}
   m_Layer: 0
   m_Name: Head
-  m_TagString: Untagged
+  m_TagString: Cat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
