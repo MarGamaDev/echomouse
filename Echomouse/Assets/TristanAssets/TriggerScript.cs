@@ -8,13 +8,13 @@ public class TriggerScript : MonoBehaviour
     [SerializeField] private UnityEvent onActivated;
     [SerializeField] private bool canActivate = true;
     [SerializeField] private float activationCoolDown;
-    //[SerializeField] private AudioClip audioClip;
-    //private AudioSource audioSource;
+    [SerializeField] private AudioClip audioClip;
+    private AudioSource audioSource;
     private Coroutine currentCoroutine;
 
     private void Awake()
     {
-        //audioSource = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void Activate()
@@ -25,7 +25,7 @@ public class TriggerScript : MonoBehaviour
         }
 
         onActivated?.Invoke();
-        //audioSource.PlayOneShot(audioClip);
+        audioSource.PlayOneShot(audioClip);
         if (currentCoroutine == null)
         {
             currentCoroutine = StartCoroutine(SetCanActivateFalse());
