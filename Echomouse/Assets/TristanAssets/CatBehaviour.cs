@@ -147,6 +147,7 @@ namespace GLU.SteeringBehaviours
 
         private IEnumerator Attack()
         {
+            yield return new WaitForSeconds(1f);
             attackHitBox.SetActive(true);
             yield return new WaitForSeconds(1f);
             attackHitBox.SetActive(false);
