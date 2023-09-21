@@ -81,7 +81,7 @@ Material:
     - _MaskAmount: 0.5
     - _MaskHardness: 0.2
     - _MaskPower: 12
-    - _MaskRadius: 16
+    - _MaskRadius: 5.04
     - _Metallic: 0
     - _Mode: 0
     - _MultiplyBlend: 0.12
@@ -97,8 +97,8 @@ Material:
     - _SpecularHighlights: 1
     - _Speed: 0.5
     - _SrcBlend: 1
-    - _Tiling: 0.05
-    - _Timer: 15.86954
+    - _Tiling: 1
+    - _Timer: 292.16626
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -108,7 +108,7 @@ Material:
     - _DepthFogColour: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Origin: {r: 0.79087794, g: 0, b: 1.1206405, a: 0}
+    - _Origin: {r: 22.647573, g: 1, b: -7.5207872, a: 0}
     - _ScanColour: {r: 0, g: 0.7681248, b: 1, a: 1}
     - _ScanOrigin: {r: 2.24, g: 0, b: 0.5, a: 0}
     - _Vector0: {r: 0, g: 0, b: 1, a: 0}
