@@ -70,7 +70,7 @@ namespace GLU.SteeringBehaviours
             }
 
             // make sure y is fixed...steering is only done in the xz plane
-            m_steering.y = 0.0f;
+            //m_steering.y = 0.0f;
 
             // clamp steering force to maximum steering force and apply mass
             m_steering  = Vector3.ClampMagnitude(m_steering, m_settings.m_maxSteeringForce);

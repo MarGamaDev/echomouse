@@ -1719,13 +1719,9 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1219335348}
-    - target: {fileID: 3618029382092666959, guid: 9116675ff8629a94da533bacd7e7f1ce, type: 3}
-      propertyPath: m_UseGravity
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3618029382092666959, guid: 9116675ff8629a94da533bacd7e7f1ce, type: 3}
-      propertyPath: m_IsKinematic
-      value: 1
+    - target: {fileID: 3618029382425601117, guid: 9116675ff8629a94da533bacd7e7f1ce, type: 3}
+      propertyPath: m_TagString
+      value: Attack
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9116675ff8629a94da533bacd7e7f1ce, type: 3}
