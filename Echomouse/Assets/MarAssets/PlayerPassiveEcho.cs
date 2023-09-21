@@ -5,10 +5,10 @@ using UnityEngine;
 public class PlayerPassiveEcho : MonoBehaviour
 {
     [SerializeField] private Material material;
-    private float timer;
+    private float timer = 0f;
 
 
-    void LateUpdate()
+    private void LateUpdate()
     {
         material.SetVector("_Origin", transform.position);
         material.SetFloat("_Timer", timer);
