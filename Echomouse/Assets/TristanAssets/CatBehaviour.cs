@@ -127,6 +127,7 @@ namespace GLU.SteeringBehaviours
             investigateBehaviour.Clear();
 
             currentTarget = distraction;
+            
             investigateBehaviour.Add(new Pursue(currentTarget));
             investigateBehaviour.Add(new AvoidWall());
             state = CatFSM.Investigate;
