@@ -11,6 +11,7 @@ Shader "Mirza Beig/Post-Processing Scan"
 		_Power("Power", Float) = 10
 		_Tiling("Tiling", Float) = 1
 		_Speed("Speed", Float) = 1
+		_Timer("Timer", Float) = 0
 		_MaskRadius("Mask Radius", Float) = 5
 		_MaskHardness("Mask Hardness", Range( 0 , 1)) = 1
 		_MaskPower("Mask Power", Float) = 1
@@ -73,6 +74,7 @@ Shader "Mirza Beig/Post-Processing Scan"
 			uniform float3 _Origin;
 			uniform float _Tiling;
 			uniform float _Speed;
+			uniform float _Timer;
 			uniform float _Power;
 			uniform float _MaskRadius;
 			uniform float _MaskHardness;
@@ -155,7 +157,7 @@ Shader "Mirza Beig/Post-Processing Scan"
 				float3 localInvertDepthDir72_g1 = InvertDepthDir72_g1( In72_g1 );
 				float4 appendResult49_g1 = (float4(localInvertDepthDir72_g1 , 1.0));
 				float SDF93 = length( distance( mul( unity_CameraToWorld, appendResult49_g1 ) , float4( _Origin , 0.0 ) ) );
-				float mulTime73 = _Time.y * _Speed;
+				float mulTime73 = _Timer * _Speed;
 				float temp_output_141_0 = ( _MaskRadius + 1.0 );
 				float lerpResult137 = lerp( 0.0 , ( temp_output_141_0 - 0.001 ) , _MaskHardness);
 				float smoothstepResult134 = smoothstep( temp_output_141_0 , lerpResult137 , SDF93);

@@ -44,5 +44,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00e7ec7517f48aa40902f63c06fac0e9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animateLengthInSeconds: 2
+  animateLengthInSeconds: 5
+  timeMult: 2
   material: {fileID: 2100000, guid: 7f2556a4af4b811408a8e739ac009f30, type: 2}
