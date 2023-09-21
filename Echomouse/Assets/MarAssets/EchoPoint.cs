@@ -8,8 +8,9 @@ public class EchoPoint : MonoBehaviour
     [SerializeField] private float animateLengthInSeconds = 1f;
     [SerializeField] private Material material;
 
-    private void Start()
+    public void StartPulse()
     {
+        material.SetVector("_Origin", transform.position);
         StartCoroutine(CountDownToDemise());
     }
 

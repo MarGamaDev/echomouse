@@ -13,11 +13,17 @@ public class EchoPointManager : MonoBehaviour
         instance = this;
     }
 
+    private void Update()
+    {
+        Debug.Log(points.Count);
+    }
+
     public void GetPulse(Vector3 position)
     {
         if (points.Count > 0)
         {
             points[points.Count - 1].transform.position = position;
+            points[points.Count - 1].GetComponent<EchoPoint>().StartPulse();
             points.RemoveAt(points.Count - 1);
         }
     }
