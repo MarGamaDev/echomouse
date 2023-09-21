@@ -6,11 +6,18 @@ using UnityEngine.Rendering.PostProcessing;
 public class EchoPoint : MonoBehaviour
 {
     [SerializeField] private float animateLengthInSeconds = 1f;
+    [SerializeField] private float timeMult = 1f;
     [SerializeField] private Material material;
+
+    private void Start()
+    {
+        StartPulse();
+    }
 
     public void StartPulse()
     {
         material.SetVector("_Origin", transform.position);
+        material.SetFloat("_Timer", 0);
         StartCoroutine(CountDownToDemise());
     }
 
@@ -20,6 +27,7 @@ public class EchoPoint : MonoBehaviour
         while (percent < 1)
         {
             yield return null;
+            material.SetFloat("_Timer", percent * timeMult);
             percent += Time.deltaTime / animateLengthInSeconds;
         }
 
