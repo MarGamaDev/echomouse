@@ -5,9 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
+    private void Start()
+    {
+        Time.timeScale = 1.0f;
+    }
+
+    public void GoToMainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
+
     public void LoadLevelOne()
     {
-        SceneManager.LoadSceneAsync("Blockout");
+        SceneManager.LoadSceneAsync(1);
     }
 
     public void LoadVictoryScreen()

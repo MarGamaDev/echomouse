@@ -56,7 +56,7 @@ public class CharacterController : MonoBehaviour
             isJumping = true;
         }
 
-        if (Input.GetMouseButtonDown(0) && squeekTimer >= squeekCooldownInSeconds)
+        if (Input.GetMouseButtonDown(0) && squeekTimer >= squeekCooldownInSeconds && Time.timeScale != 0)
         {
             //cast ray forward
             Debug.Log("fire");

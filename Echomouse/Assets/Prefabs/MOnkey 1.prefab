@@ -741,6 +741,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5590150177496870565}
   - component: {fileID: 5813481439392871808}
+  - component: {fileID: 3665246189892017305}
   m_Layer: 0
   m_Name: MOnkey 1
   m_TagString: Untagged
@@ -786,6 +787,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.06745981, y: 0.060035992, z: 0.05238939}
   m_Center: {x: 0.009263466, y: 0.029355368, z: -0.001975924}
+--- !u!95 &3665246189892017305
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107050484195783711}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 04b7f48fbc4831942a0e1a8c9258e69b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5307850769389115376
 GameObject:
   m_ObjectHideFlags: 0

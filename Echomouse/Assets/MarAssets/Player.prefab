@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 8414157924417713655}
   - component: {fileID: 8414157924417714696}
   - component: {fileID: 8414157924417714697}
+  - component: {fileID: 2616098498296596863}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -339,8 +340,8 @@ SphereCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.6
+  m_Center: {x: 0, y: -0.4, z: 0}
 --- !u!54 &8414157924417714696
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -383,8 +384,21 @@ MonoBehaviour:
   soundMask:
     serializedVersion: 2
     m_Bits: 1
-  squeekRayLength: 5
+  squeekRayLength: 10
   squeekCooldownInSeconds: 1
+--- !u!114 &2616098498296596863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414157924417714698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32907d4dc0c0d304aa31bc70b466ccd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  material: {fileID: 2100000, guid: 4b41427471e15504599226c95dd2a729, type: 2}
 --- !u!1 &8414157924582038977
 GameObject:
   m_ObjectHideFlags: 0
