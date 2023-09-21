@@ -740,6 +740,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5590150177496870565}
+  - component: {fileID: 5813481439392871808}
   m_Layer: 0
   m_Name: MOnkey 1
   m_TagString: Untagged
@@ -772,6 +773,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: -30.199, z: 0}
+--- !u!65 &5813481439392871808
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107050484195783711}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.06745981, y: 0.060035992, z: 0.05238939}
+  m_Center: {x: 0.009263466, y: 0.029355368, z: -0.001975924}
 --- !u!1 &5307850769389115376
 GameObject:
   m_ObjectHideFlags: 0
