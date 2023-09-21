@@ -13,6 +13,8 @@ public class WinStater : MonoBehaviour
 
     public void Lose()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0;
         pauseMenu.CanPause= false;
         loseText.SetActive(true);
@@ -21,6 +23,8 @@ public class WinStater : MonoBehaviour
 
     public void Win()
     {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
         Time.timeScale = 0;
         pauseMenu.CanPause = false;
         winText.SetActive(true);

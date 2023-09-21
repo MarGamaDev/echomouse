@@ -18,6 +18,8 @@ public class MainMenu : MonoBehaviour
     public void LoadLevelOne()
     {
         SceneManager.LoadSceneAsync(1);
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     public void LoadVictoryScreen()
