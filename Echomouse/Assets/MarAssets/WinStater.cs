@@ -9,20 +9,20 @@ public class WinStater : MonoBehaviour
     [SerializeField] private GameObject winText, loseText;
     [SerializeField] private GameObject exitButton;
     [SerializeField] private float fadeTime = 1f;
-
-    private void Start()
-    {
-        Invoke("Lose", 3f);
-    }
+    [SerializeField] private PauseMenu pauseMenu;
 
     public void Lose()
     {
+        Time.timeScale = 0;
+        pauseMenu.CanPause= false;
         loseText.SetActive(true);
         exitButton.SetActive(true);
     }
 
     public void Win()
     {
+        Time.timeScale = 0;
+        pauseMenu.CanPause = false;
         winText.SetActive(true);
         exitButton.SetActive(true);
     }

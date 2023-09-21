@@ -5,10 +5,11 @@ using UnityEngine;
 public class PauseMenu : MonoBehaviour
 {
     [SerializeField] private GameObject pauseScreen;
+    public bool CanPause = true;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && CanPause)
         {
             if (Time.timeScale > 0)
             {
