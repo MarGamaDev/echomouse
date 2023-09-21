@@ -9,11 +9,6 @@ public class EchoPoint : MonoBehaviour
     [SerializeField] private float timeMult = 1f;
     [SerializeField] private Material material;
 
-    private void Start()
-    {
-        StartPulse();
-    }
-
     public void StartPulse()
     {
         material.SetVector("_Origin", transform.position);
