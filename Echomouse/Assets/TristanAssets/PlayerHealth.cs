@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]private float playerHealth;
     [SerializeField] private AudioClip smackClip;
-    AudioSource smackSource;
+    [SerializeField] private AudioSource smackSource;
     private WinStater winStater;
 
     private void Awake()
@@ -28,12 +28,24 @@ public class PlayerHealth : MonoBehaviour
         winStater.Lose();
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void GetAttacked(Vector3 knockBack)
     {
-        if (other.CompareTag("Attack"))
+        playerHealth -= 1;
+        smackSource.PlayOneShot(smackClip);
+        if (playerHealth > 0)
         {
-            playerHealth -= 1;
-            smackSource.PlayOneShot(smackClip);
+            GetComponent<Rigidbody>().AddForce(knockBack, ForceMode.Impulse);
         }
+        EchoPointManager.instance.GetPulse(transform.position);
     }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Attack"))
+    //    {
+    //        playerHealth -= 1;
+    //        smackSource.PlayOneShot(smackClip);
+    //        EchoPointManager.instance.GetPulse(transform.position);
+    //    }
+    //}
 }

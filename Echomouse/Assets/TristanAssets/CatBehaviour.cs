@@ -20,8 +20,12 @@ namespace GLU.SteeringBehaviours
         private AudioSource audioSource;
         [SerializeField] private AudioClip catAttackAudio;
         [SerializeField] private AudioClip catChaseAndInvestigateAudio;
-        [SerializeField] private AudioClip catWanderAudio;
+        [SerializeField] private List<AudioClip> catWanderAudioList;
+        private AudioClip catWanderAudio { get { return catWanderAudioList[Random.Range(0, catWanderAudioList.Count)]; } }
+        [SerializeField] private float catSoundInterval = 8f, catSoundIntervalVariance = 1f;
 
+        [SerializeField] private Vector3 attackBoxHalfSize = Vector3.one;
+        [SerializeField] private float smackUpNumber, smackForce;
 
         private List<IBehavior> wanderBehaviour;
         private List<IBehavior> chaseBehaviour;
@@ -168,9 +172,16 @@ namespace GLU.SteeringBehaviours
         private IEnumerator Attack()
         {
             yield return new WaitForSeconds(1f);
-            attackHitBox.SetActive(true);
+            //attackHitBox.SetActive(true);
+
+            Collider[] cols = Physics.OverlapBox(attackHitBox.transform.position, attackBoxHalfSize);
+            foreach (Collider col in cols)
+            {
+                col.GetComponent<PlayerHealth>()?.GetAttacked(new Vector3(player.transform.position.x - transform.position.x, smackUpNumber, player.transform.position.z - transform.position.z).normalized * smackForce);
+            }
+
             yield return new WaitForSeconds(1f);
-            attackHitBox.SetActive(false);
+            //attackHitBox.SetActive(false);
 
             currentCoroutine = null;
         }
@@ -180,7 +191,8 @@ namespace GLU.SteeringBehaviours
             yield return null;
 
             audioSource.PlayOneShot(audioClip);
-            yield return new WaitForSeconds(4f);
+            EchoPointManager.instance.GetPulse(transform.position);
+            yield return new WaitForSeconds(Random.Range(catSoundInterval - catSoundIntervalVariance, catSoundInterval + catSoundIntervalVariance));
 
             soundCoroutine = null;
         }
