@@ -2306,7 +2306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d94a75e83697f54f9fd7855dd2a1f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  darkMaterial: {fileID: 2100000, guid: c0543520481c8294a82eb3b7acfff231, type: 2}
+  darkMaterial: {fileID: 2100000, guid: c42fb8324795e6e48a69d91b497f4988, type: 2}
 --- !u!1 &1551356173 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4958538023392519991, guid: 91dcc42551e60c7408b491770dc027dd, type: 3}
