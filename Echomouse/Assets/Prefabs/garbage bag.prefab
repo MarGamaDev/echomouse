@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 821865360562137030}
   - component: {fileID: 4379752448543041635}
   - component: {fileID: 1958211432707185833}
-  - component: {fileID: 4422631282237908449}
+  - component: {fileID: 6512673875629593284}
   m_Layer: 0
   m_Name: garbage bag
   m_TagString: Untagged
@@ -84,8 +84,8 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4422631282237908449
-BoxCollider:
+--- !u!64 &6512673875629593284
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -94,6 +94,7 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.01319801, y: 0.017070478, z: 0.013054202}
-  m_Center: {x: -0.0003788033, y: 0.0030561928, z: -0.00055425544}
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4068373912626513877, guid: b1cd517ae1e1cd24d846d104363701b9, type: 3}

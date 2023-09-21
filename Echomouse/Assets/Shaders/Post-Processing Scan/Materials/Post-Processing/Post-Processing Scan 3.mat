@@ -98,7 +98,7 @@ Material:
     - _Speed: 0.5
     - _SrcBlend: 1
     - _Tiling: 0.05
-    - _Timer: 1.2060707
+    - _Timer: 0.45449483
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
@@ -108,7 +108,7 @@ Material:
     - _DepthFogColour: {r: 1, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Offset: {r: 0, g: 0, b: 0, a: 0}
-    - _Origin: {r: 14.058851, g: 0.7020874, b: 9.418005, a: 0}
+    - _Origin: {r: 9.676128, g: 2.262123, b: 14.78946, a: 0}
     - _ScanColour: {r: 0, g: 0.7681248, b: 1, a: 1}
     - _ScanOrigin: {r: 2.24, g: 0, b: 0.5, a: 0}
     - _Vector0: {r: 0, g: 0, b: 1, a: 0}
