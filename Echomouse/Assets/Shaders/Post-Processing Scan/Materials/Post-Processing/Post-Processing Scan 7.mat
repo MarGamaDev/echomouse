@@ -98,7 +98,7 @@ Material:
     - _Speed: 0.5
     - _SrcBlend: 1
     - _Tiling: 0.05
-    - _Timer: 0
+    - _Timer: 0.9854501
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
