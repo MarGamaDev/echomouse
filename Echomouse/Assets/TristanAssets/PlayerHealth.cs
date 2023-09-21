@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]private float playerHealth;
+    [SerializeField] private AudioClip smackClip;
+    AudioSource smackSource;
     private WinStater winStater;
 
     private void Awake()
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.CompareTag("Attack"))
         {
             playerHealth -= 1;
+            smackSource.PlayOneShot(smackClip);
         }
     }
 }

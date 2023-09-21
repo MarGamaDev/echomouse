@@ -304,9 +304,10 @@ GameObject:
   - component: {fileID: 8414157924417714696}
   - component: {fileID: 8414157924417714697}
   - component: {fileID: 2616098498296596863}
+  - component: {fileID: 8970464556711758820}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -371,7 +372,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 300
-  jumpPower: 200
+  jumpPower: 100
   groundRayTransform: {fileID: 8414157924582038976}
   groundRayLength: 1.5
   groundMask:
@@ -399,6 +400,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   material: {fileID: 2100000, guid: 4b41427471e15504599226c95dd2a729, type: 2}
+--- !u!114 &8970464556711758820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414157924417714698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eee85043895edc44c82467f93f595d38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHealth: 2
 --- !u!1 &8414157924582038977
 GameObject:
   m_ObjectHideFlags: 0
