@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField]private float playerHealth;
+    private WinStater winStater;
+
+    private void Awake()
+    {
+        winStater = FindObjectOfType<WinStater>();
+    }
 
     private void Update()
     {
@@ -17,7 +23,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void GameOver()
     {
-        SceneManager.LoadSceneAsync(0);
+        winStater.Lose();
     }
 
     private void OnTriggerEnter(Collider other)
