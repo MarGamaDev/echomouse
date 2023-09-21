@@ -651,7 +651,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 019cdf4a3765b4948aea04caa5f58f6e, type: 3}
   - {fileID: 8300000, guid: 1f0388857da902c4aa9a0ebff7132f14, type: 3}
   - {fileID: 8300000, guid: 48ba256bc8358974dacb2a17e0d5510b, type: 3}
-  stepClipList: []
+  stepClipList:
+  - {fileID: 8300000, guid: 41c82e3725a29e447868609d52c5336f, type: 3}
+  - {fileID: 8300000, guid: 9618ba0cdc118f941b1817709e02ec76, type: 3}
+  - {fileID: 8300000, guid: c9b38a4174edbe742bcae26864addbd0, type: 3}
+  - {fileID: 8300000, guid: 9914f996e49a18e43aebf54d169b6c9c, type: 3}
+  scaredSqueek: {fileID: 8300000, guid: 16accc9ec7d735744a8295ed82018216, type: 3}
+  catScareDistance: 9
 --- !u!114 &2616098498296596863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -678,7 +684,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerHealth: 2
-  smackClip: {fileID: 0}
+  smackClip: {fileID: 8300000, guid: 99784b094f1a14743b8d5b1896dd28db, type: 3}
 --- !u!1 &8414157924582038977
 GameObject:
   m_ObjectHideFlags: 0

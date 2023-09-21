@@ -33,11 +33,16 @@ public class CharacterController : MonoBehaviour
 
     private Rigidbody rb;
 
+    [Space]
     [SerializeField] private AudioSource squeekSource, stepSource;
     [SerializeField] private List<AudioClip> squeekClipList, stepClipList;
+    [SerializeField] private AudioClip scaredSqueek;
+    [SerializeField] private float catScareDistance = 3f;
+    private Transform catTransform;
 
     private void Start()
     {
+        catTransform = GameObject.FindGameObjectWithTag("Cat").transform;
         rb = GetComponent<Rigidbody>();
     }
 
@@ -61,7 +66,10 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && squeekTimer >= squeekCooldownInSeconds && Time.timeScale != 0)
         {
-            squeekSource.PlayOneShot(squeekClipList[Random.Range(0, squeekClipList.Count)]);
+            AudioClip clip = scaredSqueek;
+            if ((catTransform.position - transform.position).magnitude >= catScareDistance)
+                clip = squeekClipList[Random.Range(0, squeekClipList.Count)];
+            squeekSource.PlayOneShot(clip);
             //cast ray forward
             RaycastHit hit;
             Vector3 pos = squeekRayTransform.forward * squeekRayLength;
@@ -84,9 +92,9 @@ public class CharacterController : MonoBehaviour
             moveForce *= Time.fixedDeltaTime;
             moveForce.y = rb.velocity.y;
             rb.velocity = moveForce;
-            if (moveForce.magnitude != 0 && !stepSource.isPlaying)
+            if (inputVector.magnitude != 0 && !stepSource.isPlaying)
             {
-                //stepSource.PlayOneShot(stepClipList[Random.Range(0, stepClipList.Count)]);
+                stepSource.PlayOneShot(stepClipList[Random.Range(0, stepClipList.Count)]);
             }
         }
 
