@@ -33,6 +33,9 @@ public class CharacterController : MonoBehaviour
 
     private Rigidbody rb;
 
+    [SerializeField] private AudioSource squeekSource, stepSource;
+    [SerializeField] private List<AudioClip> squeekClipList, stepClipList;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -58,8 +61,8 @@ public class CharacterController : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0) && squeekTimer >= squeekCooldownInSeconds && Time.timeScale != 0)
         {
+            squeekSource.PlayOneShot(squeekClipList[Random.Range(0, squeekClipList.Count)]);
             //cast ray forward
-            Debug.Log("fire");
             RaycastHit hit;
             Vector3 pos = squeekRayTransform.forward * squeekRayLength;
             if (Physics.Raycast(squeekRayTransform.position, squeekRayTransform.forward, out hit, squeekRayLength, soundMask))
@@ -81,6 +84,10 @@ public class CharacterController : MonoBehaviour
             moveForce *= Time.fixedDeltaTime;
             moveForce.y = rb.velocity.y;
             rb.velocity = moveForce;
+            if (moveForce.magnitude != 0 && !stepSource.isPlaying)
+            {
+                //stepSource.PlayOneShot(stepClipList[Random.Range(0, stepClipList.Count)]);
+            }
         }
 
         if (isJumping)
