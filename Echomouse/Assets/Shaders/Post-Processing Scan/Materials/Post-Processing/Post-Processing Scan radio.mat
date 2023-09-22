@@ -84,7 +84,7 @@ Material:
     - _MaskRadius: 12
     - _Metallic: 0
     - _Mode: 0
-    - _MultiplyBlend: 0.512
+    - _MultiplyBlend: 0.876
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Power: 13
@@ -98,7 +98,7 @@ Material:
     - _Speed: 0.3
     - _SrcBlend: 1
     - _Tiling: 2
-    - _Timer: 47.94462
+    - _Timer: 24.36491
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:

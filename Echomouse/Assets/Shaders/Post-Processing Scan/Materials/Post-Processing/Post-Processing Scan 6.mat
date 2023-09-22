@@ -79,12 +79,12 @@ Material:
     - _Intensity: 1
     - _Mask: 0.3
     - _MaskAmount: 0.5
-    - _MaskHardness: 0.2
+    - _MaskHardness: 0.175
     - _MaskPower: 12
     - _MaskRadius: 16
     - _Metallic: 0
     - _Mode: 0
-    - _MultiplyBlend: 0.12
+    - _MultiplyBlend: 0.112
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _Power: 13
@@ -98,7 +98,7 @@ Material:
     - _Speed: 0.5
     - _SrcBlend: 1
     - _Tiling: 0.05
-    - _Timer: 1.9987416
+    - _Timer: 1.9972949
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
